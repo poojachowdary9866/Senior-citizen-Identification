@@ -69,7 +69,9 @@ def process_video(file_path):
                cv2.rectangle(frame, (x, y), (x+w, y+h), (255, 0, 0), 2)
                cv2.putText(frame, f'Age: {age}, Gender: {gender}, Senior Citizen: {senior_status}', 
                           (x, y-10), cv2.FONT_HERSHEY_SIMPLEX, 0.9, (0, 255, 0), 2)
-
+         # Add exit instruction
+        cv2.putText(frame, 'Press "q" to exit', (10, frame.shape[0] - 10), 
+                    cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2, cv2.LINE_AA)
         cv2.imshow('Video Feed', frame)
         
         if cv2.waitKey(1) & 0xFF == ord('q'):
